@@ -15,26 +15,26 @@ Designed for real-time applications, clean architecture, and easy integration in
 
 ## Project Structure
 
-.                                     # ROOT DIRECTORY
-├── examples/
-│   ├── demo.py
-│   ├── gesture_game.py
-│   └── test.py
-├── hand_gesture/
-│   ├── assests/
-│   │   └── hand_landmarker.task      # HAND LANDMARK MODEL
-│   ├── __init__.py
-│   ├── config.py                     # Gesture configuration
-│   ├── engine.py                     # Main gesture engine
-│   ├── gesture.py                    # Individual gesture logic
-│   ├── logging_config.py             # Logging setup
-│   ├── recognizer.py                 # Gesture recognisation logic
-│   ├── stabilizer.py                 # Gesture stabilizer login
-│   ├── tracker.py                    # Gesture tracker
-│   └── utils.py                      # Additional functionalities
-├── .gitignore
-├── pyproject.toml
-└── README.md
+.</br>
+├── examples/</br>
+│   ├── demo.py</br>
+│   ├── gesture_game.py</br>
+│   └── test.py</br>
+├── hand_gesture/</br>
+│   ├── assests/</br>
+│   │   └── hand_landmarker.task</br>
+│   ├── __init__.py</br>
+│   ├── config.py</br>
+│   ├── engine.py</br>
+│   ├── gesture.py</br>
+│   ├── logging_config.py</br>
+│   ├── recognizer.py</br>
+│   ├── stabilizer.py</br>
+│   ├── tracker.py</br>
+│   └── utils.py</br>
+├── .gitignore</br>
+├── pyproject.toml</br>
+└── README.md</br>
 
 ## Supported Gestrues
 
@@ -99,19 +99,19 @@ Roadmap
 
 ## License
 
-MIT License
+MIT License</br>
 Free to use, modify, and distribute.
 
 ## Author
 
-Karan Vishwakarma
+Karan Vishwakarma</br>
 Built with Python and Mediapipe(Google)
 
 ## Credit
 
-```https://tree.nathanfriend.com/```
-Here, you can make you custom project directory trees for the markdown file.
-Definietly, check it out, if you want the same.
+https://tree.nathanfriend.com/</br>
+Here, you can make you custom project directory trees for the markdown file.</br>
+Definietly, check it out, if you want the same.</br>
 Very useful!
 
 ## Quick Start
@@ -157,5 +157,5 @@ thresholds:
 
 ## Contributing
 
-Pull requests are welcome.
+Pull requests are welcome.</br>
 Open an issue for major changes.
