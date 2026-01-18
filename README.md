@@ -24,14 +24,14 @@ Designed for real-time applications, clean architecture, and easy integration in
 │   ├── assests/</br>
 │   │   └── hand_landmarker.task</br>
 │   ├── __init__.py</br>
-│   ├── config.py</br>        
-│   ├── engine.py</br>          
-│   ├── gesture.py</br>                   
-│   ├── logging_config.py</br>             
-│   ├── recognizer.py</br>                 
-│   ├── stabilizer.py</br>                 
-│   ├── tracker.py</br>                   
-│   └── utils.py</br>                      
+│   ├── config.py</br>
+│   ├── engine.py</br>
+│   ├── gesture.py</br>
+│   ├── logging_config.py</br>
+│   ├── recognizer.py</br>
+│   ├── stabilizer.py</br>
+│   ├── tracker.py</br>
+│   └── utils.py</br>
 ├── .gitignore</br>
 ├── pyproject.toml</br>
 └── README.md</br>
