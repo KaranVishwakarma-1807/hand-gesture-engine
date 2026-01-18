@@ -99,19 +99,19 @@ Roadmap
 
 ## License
 
-MIT License
+MIT License</br>
 Free to use, modify, and distribute.
 
 ## Author
 
-Karan Vishwakarma
+Karan Vishwakarma</br>
 Built with Python and Mediapipe(Google)
 
 ## Credit
 
-```https://tree.nathanfriend.com/```
-Here, you can make you custom project directory trees for the markdown file.
-Definietly, check it out, if you want the same.
+```https://tree.nathanfriend.com/```</br>
+Here, you can make you custom project directory trees for the markdown file.</br>
+Definietly, check it out, if you want the same.</br>
 Very useful!
 
 ## Quick Start
@@ -157,5 +157,5 @@ thresholds:
 
 ## Contributing
 
-Pull requests are welcome.
+Pull requests are welcome.</br>
 Open an issue for major changes.
