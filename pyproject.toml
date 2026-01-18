@@ -6,7 +6,7 @@ build-backend = "setuptools.build_meta"
 name = "hand-gesture-engine"
 version = "0.1.0"
 description = "A modular real-time hand gesture recognition engine using MediaPipe"
-readme = "README.md"
+readme = { file = "README.md", content-type = "text/markdown" }
 license = { text = "MIT" }
 
 authors = [
@@ -22,8 +22,8 @@ keywords = [
 ]
 
 dependencies = [
-    "mediapipe>=0.10",
-    "opencv-python>=4.8",
+    "mediapipe",
+    "opencv-python",
     "numpy",
     "pyyaml"
 ]
@@ -36,10 +36,7 @@ Issues = "https://github.com/KaranVishwakarma-1807/hand-gesture-engine/issues"
 requires-python = ">=3.9"
 
 [tool.setuptools]
-packages = ["hand_gesture"]
-
-[tool.setuptools.package-data]
-hand_gesture = ["assets/*.task"]
+include-package-data = true
 
 [tool.setuptools.packages.find]
 where = ["."]
