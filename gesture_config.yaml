@@ -1,0 +1,10 @@
+backend: AUTO
+
+stability:
+  hold_time: 0.35
+  min_confidence: 0.6
+
+thresholds:
+  pinch: 0.04
+  thumb_extended: 0.25
+  finger_tolerance: 0.05
