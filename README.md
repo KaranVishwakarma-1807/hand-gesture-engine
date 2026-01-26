@@ -63,6 +63,13 @@ git clone https://github.com/KaranVishwakarma-1807/hand-gesture-engine.git
 cd hand-gesture-engine
 ```
 
+**BUT:**
+Now, you can also install the full module:
+
+```bash
+pip install hand-gesture-engine==0.1.1
+```
+
 ## Quick Start
 
 ### Sample Code:
@@ -95,7 +102,7 @@ while cap.isOpened():
 
 <u>**IMPORTANT**</u>:
 
-Add ```gesture_config.yaml``` in the same working directory:
+Add/Create ```gesture_config.yaml``` in the same working directory:
 ```
 backend: AUTO
 
@@ -148,3 +155,7 @@ Free to use, modify, and distribute.
 
 Pull requests are welcome.</br>
 Open an issue for major changes.
+
+### To know more about the package visit:
+
+https://pypi.org/project/hand-gesture-engine/0.1.1/
