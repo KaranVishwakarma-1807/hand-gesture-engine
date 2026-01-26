@@ -50,7 +50,7 @@ Designed for real-time applications, clean architecture, and easy integration in
 | 🤏 Pinch          | `PINCH`       |
 | 🖖 Three Fingers | `THREE`       |
 
-### Installation
+## Installation
 
 ```bash
 pip install mediapipe opencv-python
@@ -63,9 +63,9 @@ git clone https://github.com/KaranVishwakarma-1807/hand-gesture-engine.git
 cd hand-gesture-engine
 ```
 
-### Quick Start
+## Quick Start
 
-## Sample Code:
+### Sample Code:
 
 ```
 import cv2
@@ -91,7 +91,7 @@ while cap.isOpened():
         break
 ```
 
-## Configuration
+### Configuration
 
 <u>**IMPORTANT**</u>:
 
@@ -109,7 +109,7 @@ thresholds:
   finger_tolerance: 0.05
 ```
 
-### Extending Gestures
+## Extending Gestures
 
 To add a new gesture:
 
@@ -117,7 +117,7 @@ To add a new gesture:
 - Register it in ```recognizer.py```
 - (Optional) Add config parameters
 
-## Future Ideas
+### Future Ideas
 
 Roadmap
 
@@ -127,24 +127,24 @@ Roadmap
 - Mobile optimization
 - ONNX / TensorRT backend
 
-### Credit
+## Credit
 
 https://tree.nathanfriend.com/</br>
 Here, you can make you custom project directory trees for the markdown file.</br>
 Definietly, check it out, if you want the same.</br>
 Very useful!
 
-### Author
+## Author
 
 Karan Vishwakarma</br>
 Built with Python and Mediapipe(Google)
 
-### License
+## License
 
 MIT License</br>
 Free to use, modify, and distribute.
 
-### Contributing
+## Contributing
 
 Pull requests are welcome.</br>
 Open an issue for major changes.
