@@ -60,23 +60,51 @@ to clone the repository:
 
 ```bash
 git clone https://github.com/KaranVishwakarma-1807/hand-gesture-engine.git
-cd gesture-engine
+cd hand-gesture-engine
 ```
 
-## Basic Usage
+## Quick Start
 
 ```
-from gesture_engine.engine import GestureEngine
-from gesture_engine.config import GestureConfig
+import cv2
+from hand_gesture import GestureEngine, GestureConfig
 
-engine = GestureEngine(
-    backend="AUTO",
-    config=GestureConfig()
-)
+config = GestureConfig.from_yaml("gesture_config.yaml")
+engine = GestureEngine(config=config)
 
-gesture, confidence = engine.process(hand_landmarks)
+cap = cv2.VideoCapture(0)
 
-print(gesture, confidence)
+while cap.isOpened():
+    ret, frame = cap.read()
+    if not ret:
+        break
+
+    frame, gesture = engine.process(frame)
+
+    if gesture:
+        print("Detected:", gesture)
+
+    cv2.imshow("Gesture Engine", frame)
+    if cv2.waitKey(1) == 27:
+        break
+```
+
+## Configuration
+
+### IMPORTANT:
+
+Add "gesture_config.yaml" in the same working directory:
+```
+backend: AUTO
+
+stability:
+  hold_time: 0.35
+  min_confidence: 0.6
+
+thresholds:
+  pinch: 0.04
+  thumb_extended: 0.25
+  finger_tolerance: 0.05
 ```
 
 ## Extending Gestures
@@ -113,47 +141,6 @@ https://tree.nathanfriend.com/</br>
 Here, you can make you custom project directory trees for the markdown file.</br>
 Definietly, check it out, if you want the same.</br>
 Very useful!
-
-## Quick Start
-
-```
-import cv2
-from hand_gesture import GestureEngine, GestureConfig
-
-config = GestureConfig.from_yaml("gesture_config.yaml")
-engine = GestureEngine(config=config)
-
-cap = cv2.VideoCapture(0)
-
-while cap.isOpened():
-    ret, frame = cap.read()
-    if not ret:
-        break
-
-    frame, gesture = engine.process(frame)
-
-    if gesture:
-        print("Detected:", gesture)
-
-    cv2.imshow("Gesture Engine", frame)
-    if cv2.waitKey(1) == 27:
-        break
-```
-
-## Configuration
-
-```
-backend: AUTO
-
-stability:
-  hold_time: 0.35
-  min_confidence: 0.6
-
-thresholds:
-  pinch: 0.04
-  thumb_extended: 0.25
-  finger_tolerance: 0.05
-```
 
 ## Contributing
 
