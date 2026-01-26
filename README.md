@@ -3,6 +3,19 @@
 A modular, extensible hand gesture recognition engine built in Python using MediaPipe landmarks.
 Designed for real-time applications, clean architecture, and easy integration into games, apps, and AI projects.
 
+It is designed to be:
+- beginner-friendly
+- fast & real-time
+- easy to integrate
+- backend-agnostic (CPU / GPU ready)
+- production-ready (configurable, logged, packaged)
+
+Perfect for:
+- Computer Vision projects
+- Gesture-controlled apps
+- Games & UI interaction
+- Research & prototyping
+
 ## Features
 
 - Modular gesture detection system
@@ -12,6 +25,9 @@ Designed for real-time applications, clean architecture, and easy integration in
 - Built-in logging (debug & production ready)
 - CPU / GPU backend auto-selection
 - Clean project structure
+- Confidence scoring
+- Stable public API
+- Ready for extension with custom gestures
 
 ## Project Structure
 
@@ -33,7 +49,7 @@ Designed for real-time applications, clean architecture, and easy integration in
 │   ├── tracker.py</br>
 │   └── utils.py</br>
 ├── .gitignore</br>
-├── pyproject.toml</br>
+├── setup.py</br>
 └── README.md</br>
 
 ## Supported Gestrues
@@ -64,10 +80,18 @@ cd hand-gesture-engine
 ```
 
 **BUT:**</br>
-Now, you can also install the full module:
+Now, you can also directly install the module, if you just want to
+- use the pre-built engine for your project
+- try it out
 
 ```bash
-pip install hand-gesture-engine==0.1.1
+pip install hand-gesture-engine
+```
+
+Verify installation:
+
+```
+python -c "import hand_gesture; print(hand_gesture.__version__)"
 ```
 
 ## Quick Start
@@ -78,12 +102,12 @@ pip install hand-gesture-engine==0.1.1
 import cv2
 from hand_gesture import GestureEngine, GestureConfig
 
-config = GestureConfig.from_yaml("gesture_config.yaml")
-engine = GestureEngine(config=config)
+config = GestureConfig()
+engine = GestureEngine(backend="AUTO", config=config)
 
 cap = cv2.VideoCapture(0)
 
-while cap.isOpened():
+while True:
     ret, frame = cap.read()
     if not ret:
         break
@@ -91,16 +115,44 @@ while cap.isOpened():
     frame, gesture = engine.process(frame)
 
     if gesture:
-        print("Detected:", gesture)
+        name, confidence = gesture
+        cv2.putText(
+            frame,
+            f"{name} ({confidence:.2f})",
+            (30, 50),
+            cv2.FONT_HERSHEY_SIMPLEX,
+            1,
+            (0, 255, 0),
+            2
+        )
 
-    cv2.imshow("Gesture Engine", frame)
-    if cv2.waitKey(1) == 27:
+    cv2.imshow("Hand Gesture Engine", frame)
+
+    if cv2.waitKey(1) & 0xFF == 27:
         break
+
+cap.release()
+cv2.destroyAllWindows()
+
 ```
 
-### Configuration
+## Configuration
 
-<u>**IMPORTANT**</u>:
+### 1. Python Configuration
+
+```
+from hand_gesture import GestureConfig
+
+config = GestureConfig(
+    pinch_threshold=0.04,
+    thumb_extension_threshold=0.6,
+    finger_extension_threshold=0.5,
+    min_confidence=0.7,
+    enable_logging=True
+)
+```
+
+### 2. YAML Confiuration (Recommended)
 
 Add/Create ```gesture_config.yaml``` in the same working directory:
 ```
@@ -116,13 +168,77 @@ thresholds:
   finger_tolerance: 0.05
 ```
 
-## Extending Gestures
+## GestureEngine - BackEnd
 
-To add a new gesture:
+```
+engine = GestureEngine(
+    backend="AUTO",  # AUTO | CPU | GPU
+    config=config
+)
+```
+Backends:
+- AUTO - selects best available backend
+- CPU - forced CPU execution
+- GPU - uses GPU if supported
 
-- Implement gesture logic in ```gestures.py```
-- Register it in ```recognizer.py```
+## Output Format
+
+```bash
+frame, gesture = engine.process(frame)
+```
+
+If a gesture is detected:
+```bash
+gesture = ("THUMBS_UP", 0.92)
+```
+
+If not:
+```bash
+gesture = None
+```
+
+## Logging
+
+Enable logging via config:
+```
+GestureConfig(enable_logging=True)
+```
+
+Logs include:
+- Backend selection
+- Detection failures
+- Gesture recognition results
+
+## Extending with Custom Gestures
+
+Add a new gesture in ```gestures.py```:
+```
+def is_custom(hand, config):
+    # CUSTOM GESTURE LOGIC
+    return some_condition
+```
+
+Register it in ```recognizer.py```:
+```
+if is_custom(hand, config):
+    return "CUSTOM", 0.9
+```
+
 - (Optional) Add config parameters
+
+## Requirements
+
+- Python >= 3.9
+- OpenCV
+- NumPy
+- MediaPipe</br>
+(Installed automatically via pip)
+
+## Versioning
+
+Current version: v0.1.1</br>
+Follows semantic versioning</br>
+API stability guaranteed for v0.x</br>
 
 ### Future Ideas
 
@@ -149,7 +265,7 @@ Very useful!
 
 ## Author
 
-Karan Vishwakarma</br>
+**Karan Vishwakarma**</br>
 Built with Python and Mediapipe(Google)
 
 ## License
@@ -160,8 +276,20 @@ Free to use, modify, and distribute.
 ## Contributing
 
 Pull requests are welcome.</br>
-Open an issue for major changes.
+Open an issue for major changes.</br>
+Steps:
+```
+git clone https://github.com/KaranVishwakarma-1807/hand-gesture-engine
+cd hand-gesture-engine
+pip install -e .
+```
+
+## Final Note
+
+If this project helps you:
+- Star it on GitHub
+- Share it on PyPI
+- Build cool gesture-powered apps!
 
 ### To know more about the package visit:
-
 https://pypi.org/project/hand-gesture-engine/0.1.1/
