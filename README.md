@@ -63,7 +63,7 @@ git clone https://github.com/KaranVishwakarma-1807/hand-gesture-engine.git
 cd hand-gesture-engine
 ```
 
-**BUT:**
+**BUT:**</br>
 Now, you can also install the full module:
 
 ```bash
@@ -140,6 +140,12 @@ https://tree.nathanfriend.com/</br>
 Here, you can make you custom project directory trees for the markdown file.</br>
 Definietly, check it out, if you want the same.</br>
 Very useful!
+
+**Also:**</br>
+https://choosealicense.com/</br>
+This site helps you choose an open source license for your repository/project.</br>
+You can get to know about the licenses and which license to choose.</br>
+Very useful! 
 
 ## Author
 
