@@ -2,6 +2,12 @@
 
 A modular, extensible hand gesture recognition engine built in Python using MediaPipe landmarks.
 Designed for real-time applications, clean architecture, and easy integration into games, apps, and AI projects.
+Perfect for:
+
+- Computer Vision projects
+- Gesture-controlled apps
+- Games & UI interaction
+- esearch & prototyping
 
 ## Features
 
@@ -12,29 +18,10 @@ Designed for real-time applications, clean architecture, and easy integration in
 - Built-in logging (debug & production ready)
 - CPU / GPU backend auto-selection
 - Clean project structure
-
-## Project Structure
-
-.</br>
-├── examples/</br>
-│   ├── demo.py</br>
-│   ├── gesture_game.py</br>
-│   └── test.py</br>
-├── hand_gesture/</br>
-│   ├── assests/</br>
-│   │   └── hand_landmarker.task</br>
-│   ├── __init__.py</br>
-│   ├── config.py</br>
-│   ├── engine.py</br>
-│   ├── gesture.py</br>
-│   ├── logging_config.py</br>
-│   ├── recognizer.py</br>
-│   ├── stabilizer.py</br>
-│   ├── tracker.py</br>
-│   └── utils.py</br>
-├── .gitignore</br>
-├── pyproject.toml</br>
-└── README.md</br>
+- YAML configuration support
+- Confidence scoring
+- Stable public API
+- Ready for extension with custom gestures
 
 ## Supported Gestrues
 
@@ -56,15 +43,7 @@ Designed for real-time applications, clean architecture, and easy integration in
 pip install mediapipe opencv-python
 ```
 
-to clone the repository:
-
-```bash
-git clone https://github.com/KaranVishwakarma-1807/hand-gesture-engine.git
-cd hand-gesture-engine
-```
-
-**BUT:**</br>
-Now, you can also install the full module:
+Then:
 
 ```bash
 pip install hand-gesture-engine==0.1.1
@@ -116,15 +95,37 @@ thresholds:
   finger_tolerance: 0.05
 ```
 
-## Extending Gestures
+### GerstureEngine
 
-To add a new gesture:
+```
+engine = GestureEngine(
+    backend="AUTO",  # AUTO | CPU | GPU
+    config=config
+)
+```
 
-- Implement gesture logic in ```gestures.py```
-- Register it in ```recognizer.py```
-- (Optional) Add config parameters
+<b>
+Backends</br>
+AUTO - selects best available backend</br>
+CPU - forced CPU execution</br>
+GPU - uses GPU if supported</br>
+</b>
 
-### Future Ideas
+### Logging
+
+Enable logging via config:
+
+```bash
+GestureConfig(enable_logging=True)
+```
+
+Logs include:
+
+- Backend selection
+- Detection failures
+- Gesture recognition results
+
+## Future Ideas
 
 Roadmap
 
@@ -136,12 +137,6 @@ Roadmap
 
 ## Credit
 
-https://tree.nathanfriend.com/</br>
-Here, you can make you custom project directory trees for the markdown file.</br>
-Definietly, check it out, if you want the same.</br>
-Very useful!
-
-**Also:**</br>
 https://choosealicense.com/</br>
 This site helps you choose an open source license for your repository/project.</br>
 You can get to know about the licenses and which license to choose.</br>
@@ -157,11 +152,10 @@ Built with Python and Mediapipe(Google)
 MIT License</br>
 Free to use, modify, and distribute.
 
-## Contributing
+## Final Note
 
-Pull requests are welcome.</br>
-Open an issue for major changes.
+If this project helps you:
 
-### To know more about the package visit:
-
-https://pypi.org/project/hand-gesture-engine/0.1.1/
+- Star it on GitHub
+- Share it on PyPI
+- Build cool gesture-powered apps
